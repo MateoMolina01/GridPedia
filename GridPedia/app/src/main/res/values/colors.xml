@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="principal">#731403</color>
+    <color name="redbull">#011A42</color>
+    <color name="mercedes">#A9A9A9</color>
+    <color name="ferrari">#FF0000</color>
+    <color name="mclaren">#FF8C00</color>
+    <color name="astonmartin">#1C571E</color>
+    <color name="alpine">#007FFF</color>
+    <color name="alfaromeo">#800000</color>
+    <color name="haas">#B6BABD</color>
+    <color name="alphatauri">#2B4562</color>
+    <color name="williams">#005AFF</color>
+
+</resources>
