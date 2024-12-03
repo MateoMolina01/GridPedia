@@ -5,6 +5,7 @@ package com.maestre.preferenciasapp
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceFragmentCompat
 import com.maestre.gridpedia.R
 
@@ -48,6 +49,17 @@ class SettingsFragment: PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
                 //ponemos un log o un toast
                 Toast.makeText(this.context, " $userName ", Toast.LENGTH_LONG).show()
                 Log.e("mateo","usuario: $userName ")
+            }
+
+            "pref_checkbox_theme" -> {
+                val isThemeEnabled = sharedPreferences?.getBoolean(key, true) ?: true
+
+                if (isThemeEnabled) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+                requireActivity().recreate()
             }
         }
     }
