@@ -1,12 +1,12 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.viewModel
 
 import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.maestre.gridpedia.databinding.ItemTeamPageBinding
+import com.maestre.gridpedia.model.Team
 
 class TeamPagerAdapter(private val context: Context, private val teams: List<Team>) :
     RecyclerView.Adapter<TeamPagerAdapter.TeamViewHolder>() {

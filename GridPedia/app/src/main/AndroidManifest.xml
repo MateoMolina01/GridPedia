@@ -13,22 +13,22 @@
         android:theme="@style/Theme.GridPedia"
         tools:targetApi="31">
         <activity
-            android:name=".TeamPagerActivity"
+            android:name=".view.TeamPagerActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".view.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangeColorActivity"
+            android:name=".view.ChangeColorActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".DriversStandingsActivity"
+            android:name=".view.DriversStandingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

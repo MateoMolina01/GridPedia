@@ -1,4 +1,4 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.view
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.maestre.gridpedia.R
 
 class ChangeColorActivity : AppCompatActivity() {
 

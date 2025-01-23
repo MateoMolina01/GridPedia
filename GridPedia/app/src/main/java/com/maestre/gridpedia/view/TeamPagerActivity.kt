@@ -1,9 +1,12 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.maestre.gridpedia.R
+import com.maestre.gridpedia.viewModel.TeamPagerAdapter
 import com.maestre.gridpedia.databinding.ActivityTeamPagerBinding
+import com.maestre.gridpedia.model.Team
 
 class TeamPagerActivity : AppCompatActivity() {
 

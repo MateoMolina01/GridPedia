@@ -1,12 +1,12 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.viewModel
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.maestre.gridpedia.R
+import com.maestre.gridpedia.model.Piloto
 
 class AdaptadorPiloto(private val listaPilotos: List<Piloto>) :
     RecyclerView.Adapter<AdaptadorPiloto.PilotoViewHolder>() {

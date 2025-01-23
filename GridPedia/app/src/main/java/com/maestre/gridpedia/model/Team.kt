@@ -1,4 +1,4 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.model
 
 data class Team(
     val nombre: String,

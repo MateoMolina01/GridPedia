@@ -1,4 +1,4 @@
-package com.maestre.gridpedia
+package com.maestre.gridpedia.view
 
 import android.content.Intent
 import android.os.Bundle
