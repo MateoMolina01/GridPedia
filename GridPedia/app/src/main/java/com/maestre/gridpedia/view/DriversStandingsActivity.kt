@@ -58,11 +58,7 @@ class DriversStandingsActivity : AppCompatActivity() {
         val adapter = AdaptadorPiloto(driversList)
         binding.recyclerViewDrivers.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewDrivers.adapter = adapter
-
-        binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
