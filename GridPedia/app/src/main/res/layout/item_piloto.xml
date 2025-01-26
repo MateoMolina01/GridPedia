@@ -11,7 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <!-- Imagen del piloto -->
+        <ImageView
+            android:id="@+id/imgPiloto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground" />
 
         <!-- Posición -->
         <TextView
@@ -47,4 +57,3 @@
             android:textColor="@android:color/black" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-<!-- con cardview le doy un fondo mas bonito con otros bordes y elevacion y el linear lo coloca -->

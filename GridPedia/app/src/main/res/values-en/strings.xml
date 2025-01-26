@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GridPedia</string>
-    <string name="menu_busqueda">Buscar</string>
-    <string name="menu_info">Información</string>
+    <string name="menu_busqueda">Search</string>
+    <string name="menu_info">Information</string>
+    <string name="subtitle">Main Window</string>
+    <string name="btnClasificacionPilotos">Drivers Standings</string>
+    <string name="btnClasificacionEquipos">Teams Standings</string>
+    <string name="subtitleLogin">Write your login information</string>
+    <string name="titleLogin">Login</string>
+    <string name="hintUsername">Username</string>
+    <string name="hintPassword">Password</string>
+    <string name="btnValidar">Ok</string>
+    <string name="txtAbout">GridPedia is an app created to provide information about f1. \\n\\nCreated by: Mateo Molina</string>
 </resources>

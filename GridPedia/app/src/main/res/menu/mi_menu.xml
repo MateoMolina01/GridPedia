@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Opción Cambiar Color -->
+    <!-- Opción Cambiar tema -->
     <item
-        android:id="@+id/menu_cambiar_color"
+        android:id="@+id/menu_cambiar_tema"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="Preferencias"
+        android:title="Tema"
         app:showAsAction="never" />
 
     <!-- Opción Acerca de -->

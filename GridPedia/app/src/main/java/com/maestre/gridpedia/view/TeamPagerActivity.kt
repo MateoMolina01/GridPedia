@@ -3,10 +3,11 @@ package com.maestre.gridpedia.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayoutMediator
 import com.maestre.gridpedia.R
 import com.maestre.gridpedia.viewModel.TeamPagerAdapter
 import com.maestre.gridpedia.databinding.ActivityTeamPagerBinding
-import com.maestre.gridpedia.model.Team
+import com.maestre.gridpedia.model.persistencia.AdminSQLiteConexion
 
 class TeamPagerActivity : AppCompatActivity() {
 
@@ -17,28 +18,36 @@ class TeamPagerActivity : AppCompatActivity() {
         binding = ActivityTeamPagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Lista de equipos
-        val teams = listOf(
-            Team("Red Bull Racing", 696, "Max Verstappen, Sergio Pérez", R.color.redbull),
-            Team("Ferrari", 487, "Charles Leclerc, Carlos Sainz", R.color.ferrari),
-            Team("Mercedes", 520, "Lewis Hamilton, George Russell", R.color.mercedes),
-            Team("Alpine", 235, "Fernando Alonso, Esteban Ocon", R.color.alpine),
-            Team("McLaren", 205, "Lando Norris, Daniel Ricciardo", R.color.mclaren),
-            Team("Alfa Romeo", 102, "Valtteri Bottas, Zhou Guanyu", R.color.alfaromeo),
-            Team("Haas", 90, "Kevin Magnussen, Mick Schumacher", R.color.haas),
-            Team("AlphaTauri", 85, "Pierre Gasly, Yuki Tsunoda", R.color.alphatauri),
-            Team("Aston Martin", 60, "Sebastian Vettel, Lance Stroll", R.color.astonmartin),
-            Team("Williams", 25, "Alexander Albon, Nicholas Latifi", R.color.williams)
-        )
+        // Lista de equipos obtenida desde la base de datos
+        val teams = AdminSQLiteConexion(this).obtenerEquipos(this)
 
-        // Configurar el ViewPager
+        // Configurar el ViewPager2 con el adaptador
         val adapter = TeamPagerAdapter(this, teams)
         binding.viewPager.adapter = adapter
 
-        // Cambiar color de la toolbar al deslizar
+        // Vincular el TabLayout con el ViewPager2
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = teams[position].nombre // Configurar el título de cada tab
+        }.attach()
+
+        // Cambiar colores dinámicamente al deslizar entre páginas
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                binding.toolbar.setBackgroundColor(getColor(teams[position].color))
+                val colorName = teams[position].color // El nombre del color (definido en colors.xml)
+
+                // Buscar el ID del recurso de color en colors.xml
+                val resId = resources.getIdentifier(colorName, "color", packageName)
+
+                if (resId != 0) {
+                    // Si el recurso existe, cambiar el color de la Toolbar y del fondo
+                    binding.toolbar.setBackgroundColor(getColor(resId))
+                    binding.root.setBackgroundColor(getColor(resId))
+                } else {
+                    // Si no existe, usar un color predeterminado
+                    val defaultColor = getColor(R.color.black)
+                    binding.toolbar.setBackgroundColor(defaultColor)
+                    binding.root.setBackgroundColor(defaultColor)
+                }
             }
         })
     }

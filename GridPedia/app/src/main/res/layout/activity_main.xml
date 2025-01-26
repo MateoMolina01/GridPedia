@@ -24,13 +24,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/menu_icon"
         app:navigationIconTint="@color/white"
-        app:subtitle="Pantalla Principal"
+        app:subtitle="@string/subtitle"
         app:subtitleTextColor="@color/white"
 
         android:fitsSystemWindows="true"
 
         app:titleTextColor="@color/white"
-        app:title="GridPedia" />
+        app:title="@string/app_name" />
 
 
 
@@ -58,7 +58,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:backgroundTint="@color/principal"
-        android:text="Clasificación Pilotos"
+        android:text="@string/btnClasificacionPilotos"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:backgroundTint="@color/principal"
-        android:text="Clasificación Equipos"
+        android:text="@string/btnClasificacionEquipos"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

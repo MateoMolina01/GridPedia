@@ -1,3 +1,9 @@
 package com.maestre.gridpedia.model
 
-data class Piloto(val posicion: Int, val nombre: String, val puntos: Int)
+data class Piloto(
+    val id: Int,
+    val nombre: String,
+    val puntos: Int,
+    val imagenEquipo: String,
+    val idEquipo: Int
+)

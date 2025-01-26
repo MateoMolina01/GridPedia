@@ -1,23 +1,28 @@
 package com.maestre.gridpedia.view
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maestre.gridpedia.databinding.ActivityLoginBinding
+import com.maestre.gridpedia.model.persistencia.AdminSQLiteConexion
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var dbHelper: AdminSQLiteConexion
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        dbHelper = AdminSQLiteConexion(this)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Datos para AutoCompleteTextView
-        val usuarios = listOf("admin", "user1", "user2")
+        // Obtener lista de usuarios desde la base de datos
+        val usuarios = dbHelper.obtenerUsuarios(contexto = this);
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, usuarios)
         binding.autoCompleteUserName.setAdapter(adapter)
 
@@ -26,30 +31,39 @@ class LoginActivity : AppCompatActivity() {
             val username = binding.autoCompleteUserName.text.toString()
             val password = binding.password.text.toString()
 
-            //validamos contraseña mostramos un toast y vamos a la siguiente pantalla si la contra esta bien
-            if (validarContraseña(password)) {
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (dbHelper.comprobarUsuario(contexto = this, username, password)) {
+                // Usuario y contraseña correctos
                 val intent = Intent(this, MainActivity::class.java)
                 Toast.makeText(this, "Login exitoso", Toast.LENGTH_SHORT).show()
-                intent.putExtra("USERNAME", if (username.isEmpty()) "Usuario" else username)
+                intent.putExtra("USERNAME", username)
                 startActivity(intent)
-                finish() // Para que no puedan volver a la pantalla de login con el botón atrás
+                finish()
             } else {
-                binding.password.error = "Contraseña incorrecta"
+                // Usuario no encontrado, preguntar si quiere registrarse
+                mostrarDialogoRegistro(username, password)
             }
         }
-
     }
 
-    private fun validarContraseña(contra: String): Boolean {
-
-        var correcta = false
-
-        if (contra != "admin"){
-            binding.passwordLayout.setError("Contraseña Incorrecta")
-        } else {
-            binding.passwordLayout.setError(null)
-            correcta = true
-        }
-        return correcta
+    private fun mostrarDialogoRegistro(username: String, password: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Usuario no encontrado")
+            .setMessage("¿Quieres registrarte como nuevo usuario?")
+            .setPositiveButton("Sí") { dialogInterface: DialogInterface, _: Int ->
+                if (dbHelper.registrarUsuario(contexto = this, username, password) != (-1).toLong()) {
+                    Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("No") { dialogInterface: DialogInterface, _: Int ->
+                dialogInterface.dismiss()
+            }
+            .show()
     }
 }

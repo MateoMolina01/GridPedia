@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.maestre.gridpedia.viewModel.AdaptadorPiloto
 import com.maestre.gridpedia.R
 import com.maestre.gridpedia.databinding.ActivityDriversStandingsBinding
-import com.maestre.gridpedia.model.Piloto
+import com.maestre.gridpedia.model.persistencia.AdminSQLiteConexion
 
 class DriversStandingsActivity : AppCompatActivity() {
 
@@ -19,36 +19,18 @@ class DriversStandingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var dbHelper = AdminSQLiteConexion(this)
         binding = ActivityDriversStandingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         // Configurar la Toolbar
         val toolbar = binding.materialToolbar
         setSupportActionBar(toolbar)
 
         // Crear una lista de pilotos hardcodeada
-        val driversList = listOf(
-            Piloto(1, "Lewis Hamilton", 255),
-            Piloto(2, "Max Verstappen", 245),
-            Piloto(3, "Charles Leclerc", 199),
-            Piloto(4, "Sergio Pérez", 180),
-            Piloto(5, "Lando Norris", 160),
-            Piloto(6, "George Russell", 150),
-            Piloto(7, "Carlos Sainz", 140),
-            Piloto(8, "Fernando Alonso", 135),
-            Piloto(9, "Esteban Ocon", 125),
-            Piloto(10, "Pierre Gasly", 120),
-            Piloto(11, "Valtteri Bottas", 110),
-            Piloto(12, "Sebastian Vettel", 105),
-            Piloto(13, "Daniel Ricciardo", 95),
-            Piloto(14, "Kevin Magnussen", 90),
-            Piloto(15, "Yuki Tsunoda", 85),
-            Piloto(16, "Mick Schumacher", 80),
-            Piloto(17, "Lance Stroll", 75),
-            Piloto(18, "Zhou Guanyu", 70),
-            Piloto(19, "Nicholas Latifi", 60),
-            Piloto(20, "Alexander Albon", 50)
-        )
+        val driversList = AdminSQLiteConexion(this).obtenerPilotos(this);
+
 
         //solo para ponerlo mas bonito con separadores
         val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
@@ -69,7 +51,7 @@ class DriversStandingsActivity : AppCompatActivity() {
     // Manejar la selección de elementos del menú
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_cambiar_color -> {
+            R.id.menu_cambiar_tema -> {
 
                 val intent = Intent(this, ChangeColorActivity::class.java)
 

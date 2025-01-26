@@ -9,9 +9,19 @@
     <color name="mclaren">#FF8C00</color>
     <color name="astonmartin">#1C571E</color>
     <color name="alpine">#007FFF</color>
-    <color name="alfaromeo">#800000</color>
+    <color name="sauber">#800000</color>
     <color name="haas">#B6BABD</color>
-    <color name="alphatauri">#2B4562</color>
+    <color name="racingbulls">#2B4562</color>
     <color name="williams">#005AFF</color>
+
+    <!-- Colores para el Tema Oscuro -->
+    <color name="primary_dark">#BB86FC</color>
+    <color name="primary_darker">#3700B3</color>
+    <color name="accent_dark">#03DAC5</color>
+
+    <!-- Colores para el Tema Claro -->
+    <color name="primary_light">#6200EE</color>
+    <color name="primary_dark_light">#3700B3</color>
+    <color name="accent_light">#03DAC5</color>
 
 </resources>

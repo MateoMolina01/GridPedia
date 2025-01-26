@@ -4,4 +4,28 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+    <!-- Nuevo tema que le añadimos, para ponerlo en el manifest,heredamos del un tema material3 dark y le cambiamos el tipo de letra -->
+    <style name="NuevoTemaPrueba" parent="Theme.Material3.Dark"> <item name="android:textStyle">bold</item> </style>
+
+    <!-- nuevo estilo con otro tema diferetne -->
+    <style name="AppNewTheme" parent="Theme.AppCompat.Light">
+        <!-- Estilos para Edit Texts-->
+        <!--item name="android:editTextStyle">@style/EditTextStyle</item-->
+        <!--Estilos de ventana-->
+        <item name="android:windowFullscreen">true</item>
+        <!-- Estilos textView -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@android:color/holo_blue_bright</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- Tema Oscuro -->
+    <style name="Theme.MyApp.Dark" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ferrari</item>
+        <item name="colorPrimaryDark">@color/ferrari</item>
+        <item name="colorAccent">@color/ferrari</item>
+    </style>
 </resources>

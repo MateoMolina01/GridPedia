@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/menu_icon"
         app:navigationIconTint="@color/white"
-        app:title="Clasificación Pilotos"
+        app:title="@string/btnClasificacionPilotos"
         app:titleTextColor="@color/white" />
 
     <!-- RecyclerView para mostrar la clasificación -->

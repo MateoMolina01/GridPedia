@@ -1,27 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.GridPedia" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
 
-    <style name="Theme.GridPedia" parent="Base.Theme.GridPedia" />
+        <!-- Tema Claro -->
+        <style name="Theme.MyApp.Light" parent="Theme.AppCompat.Light.NoActionBar">
+            <item name="colorPrimary">@color/primary_light</item>
+            <item name="colorPrimaryDark">@color/primary_dark_light</item>
+            <item name="colorAccent">@color/accent_light</item>
+        </style>
 
-    <!-- Nuevo tema que le añadimos, para ponerlo en el manifest,heredamos del un tema material3 dark y le cambiamos el tipo de letra -->
-    <style name="NuevoTemaPrueba" parent="Theme.Material3.Dark"> <item name="android:textStyle">bold</item> </style>
 
-    <!-- nuevo estilo con otro tema diferetne -->
-    <style name="AppNewTheme" parent="Theme.AppCompat.Light">
-        <!-- Estilos para Edit Texts-->
-        <!--item name="android:editTextStyle">@style/EditTextStyle</item-->
-        <!--Estilos de ventana-->
-        <item name="android:windowFullscreen">true</item>
-        <!-- Estilos textView -->
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:textColor">@android:color/holo_blue_bright</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:textStyle">italic</item>
-    </style>
+
 </resources>

@@ -3,4 +3,13 @@
     <string name="app_name">GridPedia</string>
     <string name="menu_busqueda">Buscar</string>
     <string name="menu_info">Información</string>
+    <string name="subtitle">Pantalla Principal</string>
+    <string name="btnClasificacionPilotos">Clasificacion Pilotos</string>
+    <string name="btnClasificacionEquipos">Clasifacion Equipos</string>
+    <string name="subtitleLogin">Indica tus datos de inicio de sesión</string>
+    <string name="titleLogin">Inicio de sesión</string>
+    <string name="hintUsername">NombreUsuario</string>
+    <string name="hintPassword">Contraseña</string>
+    <string name="btnValidar">Validar</string>
+    <string name="txtAbout">GridPedia es una aplicación diseñada para ofrecer información básica sobre Fórmula 1. \\n\\nCreada por: Mateo Molina</string>
 </resources>
